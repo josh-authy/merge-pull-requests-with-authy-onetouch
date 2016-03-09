@@ -10,6 +10,7 @@ module.exports = {
                     -d details[username]="' + pr.pull_request.user.login + '" \
                     -d details[from]="' + pr.pull_request.head.label + '" \
                     -d details[to]="' + pr.pull_request.base.label + '" \
+                    -d details[link]="' + pr.pull_request.html_url + '" \
                     -d seconds_to_expire=0';
 
     return commands.run(command);
