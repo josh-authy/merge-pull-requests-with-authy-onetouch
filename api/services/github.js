@@ -10,7 +10,7 @@ module.exports = {
                     -d \'{ "base":"' + pr.pull_request.base.label + '", \
                           "head":"' + pr.pull_request.head.label + '", \
                           "commit_message":"' + pr.pull_request.title + '" }\' \
-                    https://api.github.com/repos/cepinos/notes/merges';
+                    ' + pr.pull_request.repository.merges_url;
 
     child = exec(command, function(error, stdout, stderr){
       var output;
