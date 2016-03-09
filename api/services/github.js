@@ -6,11 +6,10 @@ module.exports = {
 
     var deferred = q.defer();
 
-    var command = 'curl -H "Authorization: token ' + process.env.GITHUB_OAUTH_TOKEN + '" \
-                    -d \'{ "base":"' + pr.pull_request.base.label + '", \
-                          "head":"' + pr.pull_request.head.label + '", \
+    var command = 'curl -X PUT -H "Authorization: token ' + process.env.GITHUB_OAUTH_TOKEN + '" \
+                    -d \'{ "sha":"' + pr.pull_request.head.sha + '", \
                           "commit_message":"' + pr.pull_request.title + '" }\' \
-                    ' + pr.pull_request.repository.merges_url;
+                    ' + pr.pull_request.url + '/merge';
 
     child = exec(command, function(error, stdout, stderr){
       var output;
