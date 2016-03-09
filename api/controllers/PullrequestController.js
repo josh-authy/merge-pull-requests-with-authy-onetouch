@@ -63,8 +63,12 @@ function receive(req, res) {
  * @param  {Object} res response
  */
 function approve(req, res) {
-  github.merge().then(function(output){
+  var uuid = req.body.approval_request.uuid;
+  Pullrequest.findOne({uuid: uuid}, function(err, pr){
+    github.merge(pr).then(function(output){
+    });  
   });
+  
   res.send('pr');
 }
 
