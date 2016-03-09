@@ -9,8 +9,25 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.globals.html
  */
 
+var fs = require('fs');
 var env = require('node-env-file');
-env(__dirname + '/../.env');
+
+var envPath = __dirname + '/../.env';
+
+function fileExists(filePath)
+{
+    try
+    {
+        return fs.statSync(filePath).isFile();
+    }
+    catch (err)
+    {
+        return false;
+    }
+}
+
+fileExists(envPath) && env(envPath);
+
 
 module.exports.globals = {
 

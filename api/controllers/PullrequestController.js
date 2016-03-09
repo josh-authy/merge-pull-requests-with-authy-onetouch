@@ -42,7 +42,6 @@ function findOrCreate(obj){
 function receive(req, res) {
 
   req.body && findOrCreate(req.body).then(function(pr){
-    console.log('saved pull request', pr.pr_id);
     onetouch.save(pr).then(function(output){
       pr.uuid = output.approval_request.uuid;
       pr.save();
@@ -64,9 +63,7 @@ function receive(req, res) {
  * @param  {Object} res response
  */
 function approve(req, res) {
-  req.body.approval_request && console.log(req.body.approval_request.transaction.details);
   github.merge().then(function(output){
-    console.log(output);
   });
   res.send('pr');
 }

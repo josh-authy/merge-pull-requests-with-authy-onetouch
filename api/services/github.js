@@ -14,7 +14,7 @@ module.exports = {
 
     child = exec(command, function(error, stdout, stderr){
       var output;
-      console.log(stdout);
+      
       if(error !== null)
       {
           return deferred.reject(error);
