@@ -1,0 +1,78 @@
+/**
+ * PullrequestController
+ *
+ * @description :: Server-side logic for managing pullrequests
+ * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
+ */
+
+// imports
+var q = require('q');
+var onetouch = require('../services/onetouch.js');
+var github = require('../services/github.js');
+
+/**
+ * Find or create a pull request
+ * @param  {Object} obj Pull Request object
+ * @return {promise}
+ */
+function findOrCreate(obj){
+  if(!obj) return;
+
+  var deferred = q.defer();
+
+  obj.pr_id = obj.pull_request.id;
+
+  Pullrequest.findOrCreate({pr_id:obj.pr_id}, obj).exec(function createCB(err, created){
+    if(!!err){
+      return deferred.reject(err);
+    }
+    return deferred.resolve(created);
+  });
+
+  return deferred.promise;
+
+}
+
+
+/**
+ * Receive pull request and record it into onetouch api
+ * @param  {Object} req request
+ * @param  {Object} res response
+ */
+function receive(req, res) {
+
+  req.body && findOrCreate(req.body).then(function(pr){
+    console.log('saved pull request', pr.pr_id);
+    onetouch.save(pr).then(function(output){
+      pr.uuid = output.approval_request.uuid;
+      pr.save();
+    });
+  });
+
+  Pullrequest.find().exec(function (err, pr){
+    if (err) {
+      return res.negotiate(err);
+    }
+    return res.json(pr);
+  });
+
+}
+
+/**
+ * This webhook is call when a pull request is aproved. This will merge the pull request
+ * @param  {Object} req request
+ * @param  {Object} res response
+ */
+function approve(req, res) {
+  req.body.approval_request && console.log(req.body.approval_request.transaction.details);
+  github.merge().then(function(output){
+    console.log(output);
+  });
+  res.send('pr');
+}
+
+module.exports = {
+	receive: receive,
+  approve: approve
+};
+
