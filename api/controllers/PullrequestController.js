@@ -68,7 +68,7 @@ function approve(req, res) {
   if(req.body.status !== 'approved') return res.send('');
   var uuid = req.body.uuid;
   Pullrequest.findOne({uuid: uuid}).exec(function(err, pr){ 
-    github.merge(pr).then(function(output){
+    pr && github.merge(pr).then(function(output){
     });
   });
   return res.send('');
