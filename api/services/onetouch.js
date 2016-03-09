@@ -8,8 +8,8 @@ module.exports = {
                     -d details[title]="' + pr.pull_request.title + '" \
                     -d details[body]="' + pr.pull_request.body + '" \
                     -d details[username]="' + pr.pull_request.user.login + '" \
-                    -d details[head]="' + pr.pull_request.head.label + '" \
-                    -d details[base]="' + pr.pull_request.base.label + '" \
+                    -d details[from]="' + pr.pull_request.head.label + '" \
+                    -d details[to]="' + pr.pull_request.base.label + '" \
                     -d seconds_to_expire=0';
 
     return commands.run(command);
