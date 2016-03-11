@@ -18,8 +18,8 @@ npm install sails
 Clone this repo and run npm install:
 
 ```
-git clone git@github.com:cepinos/OneTouch-Approve-Pull-Requests.git
-cd OneTouch-Approve-Pull-Requests
+git clone git@github.com:cepinos/merge-pull-requests-with-authy-onetouch.git
+cd merge-pull-requests-with-authy-onetouch
 npm install
 sails lift
 ```
@@ -30,7 +30,7 @@ GITHUB_OAUTH_TOKEN=Yor github oauth token
 AUTHY_USER_ID=authy user
 AUTHY_API_KEY=Authy api key
 
-Use ngrok to expose the port 1337, and use the url generated to add this to authy and github webhooks.
+Use ngrok to expose the port 1337, and use the url generated to add this to Authy and github webhooks.
 
- - The path for github is /pullrequestreceive
- - The path for authy is /pullrequestapprove
+ - The path for github is http://YOURDOMAIN/pullrequestreceive
+ - The path for authy is http://YOURDOMAIN/pullrequestapprove
