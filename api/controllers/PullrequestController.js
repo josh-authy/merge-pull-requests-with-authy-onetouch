@@ -65,14 +65,26 @@ function receive(req, res) {
  * @param  {Object} res response
  */
 function approve(req, res) {
-  if(req.body.status !== 'approved') return res.send('');
+  if(req.body && req.body.status !== 'approved') return show();
+
+  Approved.findOrCreate(req.body).exec(function createCB(err, created){});
+
   var uuid = req.body.uuid;
+
   Pullrequest.findOne({uuid: uuid}).exec(function(err, pr){ 
     pr && github.merge(pr).then(function(output){
     });
   });
-  return res.send('');
-  
+
+  function show(){
+    Approved.find().exec(function (err, pr){
+      if (err) {
+        return res.negotiate(err);
+      }
+      return res.json(pr);
+    });
+  }
+
 }
 
 module.exports = {
