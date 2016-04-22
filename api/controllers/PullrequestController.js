@@ -65,7 +65,7 @@ function receive(req, res) {
  * @param  {Object} res response
  */
 function approve(req, res) {
-  if(req.body && req.body.status !== 'approved') return show();
+  if(!req.body || req.body.status !== 'approved') return show();
 
   Approved.findOrCreate(req.body).exec(function createCB(err, created){});
 
