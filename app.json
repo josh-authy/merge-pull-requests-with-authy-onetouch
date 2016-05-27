@@ -1,6 +1,6 @@
 {
-  "name": "Merge OneTouch Pull Requests with Authy OneTouch",
-  "description": "Merge Authy OneTouch Requests",
+  "name": "Merge Pull Requests with Authy",
+  "description": "Merge GitHub Pull Requests with Authy OneTouch",
   "repository": "https://github.com/cepinos/merge-pull-requests-with-authy-onetouch",
   "keywords": ["node", "express", "static"]
 }
