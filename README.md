@@ -34,3 +34,7 @@ Use ngrok to expose the port 1337, and use the url generated to add this to Auth
 
  - The path for github is http://YOURDOMAIN/pullrequestreceive
  - The path for authy is http://YOURDOMAIN/pullrequestapprove
+
+
+# Deploy to heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
