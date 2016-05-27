@@ -38,3 +38,8 @@ Use ngrok to expose the port 1337, and use the url generated to add this to Auth
 
 # Deploy to heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+
+After deploy, edit enviroment vars:
+
+![Alt text](assets/images/env.png?raw=true "Env Vars")
