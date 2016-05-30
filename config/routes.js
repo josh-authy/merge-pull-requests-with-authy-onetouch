@@ -47,4 +47,5 @@ module.exports.routes = {
   ***************************************************************************/
   '/pullrequestreceive': 'PullRequestController.receive',
   '/pullrequestapprove': 'PullRequestController.approve',
+  '/test': 'PullRequestController.test',
 };
