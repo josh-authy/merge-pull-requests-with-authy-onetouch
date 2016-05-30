@@ -87,8 +87,19 @@ function approve(req, res) {
 
 }
 
+
+/**
+ * Responds to a test with a response.
+ * @param  {Object} req request
+ * @param  {Object} res response
+ */
+function test(req, res) {
+  return res.status(200).send({ yo: "we good" });
+}
+
 module.exports = {
 	receive: receive,
-  approve: approve
+  approve: approve,
+  test: test
 };
 
