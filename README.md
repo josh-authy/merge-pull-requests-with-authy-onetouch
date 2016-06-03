@@ -18,7 +18,7 @@ npm install sails
 Clone this repo and run npm install:
 
 ```
-git clone git@github.com:cepinos/merge-pull-requests-with-authy-onetouch.git
+git clone git@github.com:josh-authy/merge-pull-requests-with-authy-onetouch.git
 cd merge-pull-requests-with-authy-onetouch
 npm install
 sails lift
