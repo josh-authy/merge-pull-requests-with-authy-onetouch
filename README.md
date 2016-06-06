@@ -16,7 +16,6 @@ npm install sails
 ```
 
 Clone this repo and run npm install:
-asdf
 ```
 git clone git@github.com:josh-authy/merge-pull-requests-with-authy-onetouch.git
 cd merge-pull-requests-with-authy-onetouch
