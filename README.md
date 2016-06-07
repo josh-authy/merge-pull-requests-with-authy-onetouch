@@ -26,7 +26,9 @@ sails lift
 Create a .env file to configure GitHub and Authy tokens, this file must not be added to git for your security.
 
 GITHUB_OAUTH_TOKEN=XXXXYYYYYZZZ
+
 AUTHY_USER_ID=1234567
+
 AUTHY_API_KEY=XXXXXXXXXXXXXXXXXXXX
 
 Use ngrok to expose the port 1337, and use the url generated to add this to Authy and github webhooks.
