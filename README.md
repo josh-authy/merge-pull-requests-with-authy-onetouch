@@ -1,9 +1,8 @@
 Merge Pull Request using Authy OneTouch
 ==============
 
-HORRIBLY MISPELLD WRDS!
 
-Merge GitHub pull request using Authy OneTouch
+Merge GitHub pull request using Authy OneTouch....
 
 # Install
 
