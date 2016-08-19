@@ -1,6 +1,7 @@
 Merge Pull Request using Authy OneTouch
 ==============
 
+Silly little typos here.  No big deal but still requires a PR as master is protected.
 
 Merge GitHub pull request using Authy OneTouch....
 
