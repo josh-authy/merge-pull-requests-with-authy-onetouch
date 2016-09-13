@@ -30,7 +30,7 @@ GITHUB_OAUTH_TOKEN=XXXXYYYYYZZZ
 
 AUTHY_USER_ID=1234567
 
-AUTHY_API_KEY=XXXXXXXXXXXXXXXXXXXX
+AUTHYPRER_API_KEY=XXXXXXXXXXXXXXXXXXXX
 
 Use ngrok to expose the port 1337, and use the url generated to add this to Authy and github webhooks.
 

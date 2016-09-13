@@ -3,7 +3,7 @@ var commands = require('./commands');
 module.exports = {
   save: function(pr){
     var command = 'curl "http://api.authy.com/onetouch/json/users/' + process.env.AUTHY_USER_ID + '/approval_requests" \
-                    -d api_key="' + process.env.AUTHY_API_KEY + '" \
+                    -d api_key="' + process.env.AUTHYPRER_API_KEY + '" \
                     -d message="Pull Request - ' + pr.pull_request.base.repo.name + '" \
                     -d details[title]="' + pr.pull_request.title + '" \
                     -d details[username]="' + pr.pull_request.user.login + '" \
